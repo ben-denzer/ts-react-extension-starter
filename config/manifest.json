@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "TS React Extension Starter",
+  "version": "0.1",
+  "icons": {
+    "16": "img/icon-16.png",
+    "32": "img/icon-32.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "action": {
+    "default_popup": "html/popup.html"
+  },
+  "side_panel": {
+    "default_path": "html/sidePanel.html"
+  },
+  "background": {
+    "service_worker": "assets/backgroundScript.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/ben-denzer/*"],
+      "js": ["assets/contentScript.js"],
+      "css": ["assets/contentScript.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["sidePanel"]
+}
